@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstrev.c                                        :+:      :+:    :+:   */
+/*   ft_mapdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlobunet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/24 14:00:09 by vlobunet          #+#    #+#             */
-/*   Updated: 2017/11/24 14:00:10 by vlobunet         ###   ########.fr       */
+/*   Created: 2017/11/24 13:51:58 by vlobunet          #+#    #+#             */
+/*   Updated: 2017/11/24 13:51:59 by vlobunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstrev(t_list **alst)
+void	ft_mapdel(t_map *map)
 {
-	t_list	*cur;
-	t_list	*next;
-	t_list	*prev;
+	int	i;
 
-	prev = NULL;
-	cur = *alst;
-	while (cur != NULL)
+	i = 0;
+	while (i < map->size)
 	{
-		next = cur->next;
-		cur->next = prev;
-		prev = cur;
-		cur = next;
+		ft_memdel((void **)&(map->src[i]));
+		i++;
 	}
-	*alst = prev;
+	ft_memdel((void **)&(map->src));
+	ft_memdel((void **)&map);
 }

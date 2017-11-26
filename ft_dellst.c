@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_delete.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlobunet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 13:58:35 by vlobunet          #+#    #+#             */
-/*   Updated: 2017/10/30 13:58:38 by vlobunet         ###   ########.fr       */
+/*   Created: 2017/11/24 13:51:23 by vlobunet          #+#    #+#             */
+/*   Updated: 2017/11/24 13:51:25 by vlobunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char const *s, int fd)
+static void	ft_tetramindel(t_block *str)
 {
-	int i;
+	int	y;
 
-	i = 0;
-	if (s != NULL)
+	y = 0;
+	while (y < str->h)
 	{
-		while (s[i] != '\0')
-		{
-			ft_putchar_fd(s[i], fd);
-			i++;
-		}
+		ft_memdel((void **)(&(str->src[y])));
+		y++;
 	}
+	ft_memdel((void **)(&(str->src)));
+	ft_memdel((void **)&str);
+}
+
+t_list		*ft_dellst(t_list *str)
+{
+	t_block	*tetris;
+	t_list	*next;
+
+	while (str)
+	{
+		tetris = (t_block *)str->content;
+		next = str->next;
+		ft_tetramindel(tetris);
+		ft_memdel((void **)&str);
+		str = next;
+	}
+	return (NULL);
 }

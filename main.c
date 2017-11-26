@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlobunet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/24 14:09:02 by vlobunet          #+#    #+#             */
+/*   Updated: 2017/11/24 14:09:04 by vlobunet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int		main(int c, char **v)
 {
 	t_list	*list;
-	t_mapp	*mapp;
-	coll = 0;
+	t_map	*map;
+
 	if (c != 2)
 	{
 		ft_putstr("usage: fillit input_file\n");
@@ -16,8 +28,7 @@ int		main(int c, char **v)
 		ft_putstr("error\n");
 		return (1);
 	}
-	mapp = ft_spot(list);
-	ft_printm(mapp);
-	//printf("%d\n", coll);
+	map = ft_mapcreate(list);
+	ft_printm(map);
 	return (0);
 }

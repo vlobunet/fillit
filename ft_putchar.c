@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlobunet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/25 13:43:10 by vlobunet          #+#    #+#             */
-/*   Updated: 2017/10/25 13:43:15 by vlobunet         ###   ########.fr       */
+/*   Created: 2017/11/24 14:04:11 by vlobunet          #+#    #+#             */
+/*   Updated: 2017/11/24 14:04:12 by vlobunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char s)
+void	ft_putchar(char c)
 {
-	write(1, &s, sizeof(s));
+	write(1, &c, 1);
 }

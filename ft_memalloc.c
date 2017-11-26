@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlobunet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/25 15:56:58 by vlobunet          #+#    #+#             */
-/*   Updated: 2017/10/25 15:57:04 by vlobunet         ###   ########.fr       */
+/*   Created: 2017/11/24 14:00:30 by vlobunet          #+#    #+#             */
+/*   Updated: 2017/11/24 14:00:31 by vlobunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	*ft_memalloc(size_t size)
 {
-	void *str;
+	void *arr;
 
-	str = malloc(size);
-	if (str == NULL)
+	if ((arr = (void*)malloc(sizeof(void) * size)) == NULL)
 		return (NULL);
-	else
-		return (ft_memset(str, 0, size));
+	ft_bzero(arr, size);
+	return (arr);
 }

@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstrev.c                                        :+:      :+:    :+:   */
+/*   ft_findamap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlobunet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/24 14:00:09 by vlobunet          #+#    #+#             */
-/*   Updated: 2017/11/24 14:00:10 by vlobunet         ###   ########.fr       */
+/*   Created: 2017/11/24 13:52:42 by vlobunet          #+#    #+#             */
+/*   Updated: 2017/11/24 13:52:44 by vlobunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstrev(t_list **alst)
+int	ft_findamap(t_map *map, t_list *list)
 {
-	t_list	*cur;
-	t_list	*next;
-	t_list	*prev;
+	t_block	*block;
+	int		x;
+	int		y;
 
-	prev = NULL;
-	cur = *alst;
-	while (cur != NULL)
+	y = 0;
+	if (list == NULL)
+		return (1);
+	block = (t_block *)(list->content);
+	while (y < map->size - block->h + 1)
 	{
-		next = cur->next;
-		cur->next = prev;
-		prev = cur;
-		cur = next;
+		x = 0;
+		while (x < map->size - block->w + 1)
+		{
+			if (ft_place(block, map, x, y))
+			{
+				if (ft_findamap(map, list->next))
+					return (1);
+				else
+					ft_setplace(block, map, ft_newp(x, y), '.');
+			}
+			x++;
+		}
+		y++;
 	}
-	*alst = prev;
+	return (0);
 }

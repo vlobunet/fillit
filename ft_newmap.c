@@ -1,23 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_newmap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlobunet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/24 14:02:31 by vlobunet          #+#    #+#             */
+/*   Updated: 2017/11/24 14:02:32 by vlobunet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
-t_mapp	*ft_newmap(int size)
+t_map	*ft_newmap(int size)
 {
-	t_mapp	*mapp;
+	t_map	*map;
 	int		i;
 	int		j;
 
 	i = 0;
-	mapp = (t_mapp *)ft_memalloc(sizeof(t_mapp));
-	mapp->size = size;
-	mapp->array = (char **)ft_memalloc(sizeof(char *) * size);
+	map = (t_map *)ft_memalloc(sizeof(t_map));
+	map->size = size;
+	map->src = (char **)ft_memalloc(sizeof(char *) * size);
 	while (i < size)
 	{
-		mapp->array[i] = ft_strnew(size);
+		map->src[i] = ft_strnew(size);
 		j = 0;
 		while (j < size)
-			mapp->array[i][j++] = '.';
+			map->src[i][j++] = '.';
 		i++;
 	}
-	return (mapp);
+	return (map);
 }

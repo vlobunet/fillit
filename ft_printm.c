@@ -1,14 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printm.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlobunet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/24 14:03:37 by vlobunet          #+#    #+#             */
+/*   Updated: 2017/11/24 14:03:38 by vlobunet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_printm(t_mapp *mapp)
+void	ft_printm(t_map *map)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (i < mapp->size)
-	{	
-		ft_putstr(mapp->array[i++]);
+	while (i < map->size)
+	{
+		ft_putstr(map->src[i++]);
 		ft_putchar('\n');
 	}
 }

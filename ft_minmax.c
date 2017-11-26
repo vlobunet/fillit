@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_minmax.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlobunet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/24 14:02:06 by vlobunet          #+#    #+#             */
+/*   Updated: 2017/11/24 14:02:07 by vlobunet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_minmax(char *str, t_tetra *min, t_tetra *max)
@@ -9,10 +21,10 @@ void	ft_minmax(char *str, t_tetra *min, t_tetra *max)
 	{
 		if (str[i] == '#')
 		{
-			(i / 5 < min->y)?(min->y = i / 5):0;
-			(i / 5 > max->y)?(max->y = i / 5):0;
-			(i % 5 < min->x)?(min->x = i % 5):0;
-			(i % 5 > max->x)?(max->x = i % 5):0;
+			(i / 5 < min->y) ? (min->y = i / 5) : 0;
+			(i / 5 > max->y) ? (max->y = i / 5) : 0;
+			(i % 5 < min->x) ? (min->x = i % 5) : 0;
+			(i % 5 > max->x) ? (max->x = i % 5) : 0;
 		}
 		i++;
 	}
